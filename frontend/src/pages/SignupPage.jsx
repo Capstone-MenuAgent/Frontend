@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/Signup.module.css'; // Import the CSS module
 import Header1 from '../layout/Header1';
+import axios from 'axios';
 
 function SignupPage() {
   const [formData, setFormData] = useState({
@@ -8,7 +9,8 @@ function SignupPage() {
     mainPassword: '',
     confirmPassword: '',
     email: '',
-    phoneNumber: ''
+    age: '',
+    gender : ','
   });
 
   const handleChange = (e) => {
@@ -20,9 +22,17 @@ function SignupPage() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form Data:', formData);
-    // Handle form submission, like sending data to a server
+    axios.post("/user/signup",
+      {
+        id : e.id,
+        password : e.password,
+        email : e.email,
+        age : e.age,
+        gender : e.gender
+      }
+    ).then((res) => {
+        alert(res.data);
+    })
   };
 
   return (
@@ -46,8 +56,12 @@ function SignupPage() {
             <input type="email" name="email" value={formData.email} onChange={handleChange} className={styles.input} />
         </label>
         <label className={styles.label}>
-            전화번호
-            <input type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} className={styles.input} />
+            나이
+            <input type="text" name="age" value={formData.id} onChange={handleChange} className={styles.input} />
+        </label>
+        <label className={styles.label}>
+            성별
+            <input type="text" name="gender" value={formData.id} onChange={handleChange} className={styles.input} />
         </label>
         <button type="submit" className={styles.button}>회원가입</button>
         </form>

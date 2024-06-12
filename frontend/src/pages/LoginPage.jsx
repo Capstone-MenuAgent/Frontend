@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/LoginPage.module.css';
 import { Link } from 'react-router-dom';
 import Header2 from '../layout/Header2';
+import axios from 'axios';
 
 function LoginPage() {
   const [formData, setFormData] = useState({
@@ -17,10 +18,15 @@ function LoginPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Login Data:', formData);
-    // Handle the form submission logic here
+  const handleSubmit = (data) => {
+      axios.post("/user/login",
+      {
+          id: data.id,
+          password: data.password
+
+      }).then((res) => {
+          alert(res.data)
+          })      
   };
 
   return (

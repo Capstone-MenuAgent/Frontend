@@ -1,29 +1,41 @@
-// src/MainPage.js
-import React from 'react';
-import Header from '../layout/Header1';
-import styles from '../styles/MainPage.module.css';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import styles from './MainPage.module.css';
 
-function MainPage() {
+const Chat = () => {
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
+
+  const handleSend = () => {
+    if (input.trim()) {
+      setMessages([...messages, input]);
+      setInput('');
+    }
+  };
+
   return (
-    <div className={styles.MainPage}>
-      <Header />
-      <div className={styles.mainContent}>
-        <p className={styles.mainText}>
-          선택하기 어려운 점심,<br />
-          누군가가 결정해주면 좋을 것 같다는 생각 안해보셨나요?<br /><br />
-          ****가 해드립니다.
-        </p>
-        <Link to='/LoginPage'>
-          <button className={styles.startButton}>시작하기</button>
-        </Link>
-        <div className={styles.indicatorContainer}>
-          <div className={styles.indicator}></div>
-          <div className={`${styles.indicator} ${styles.indicatorInactive}`}></div>
+    <div className={styles.container}>
+      <div className={styles.chatBox}>
+        <div className={styles.chatHeader}>로고위치</div>
+        <div className={styles.chatContent}>
+          {messages.map((msg, index) => (
+            <div key={index}>{msg}</div>
+          ))}
+        </div>
+        <div className={styles.chatFooter}>
+          <input
+            type="text"
+            className={styles.chatInput}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="메시지를 입력하세요..."
+          />
+          <button className={styles.chatButton} onClick={handleSend}>
+            전송
+          </button>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default MainPage;
+export default Chat;
