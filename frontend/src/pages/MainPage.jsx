@@ -10,13 +10,16 @@ const MainPage = () => {
 
  const handleSend = async () => {
     if (input.trim()) {
-      // try {
-      //   const response = await axios.get('/user/question', {
-      //     params: {
-      //       query: input,
-      //     },
-      //   });
-      //   console.log('Server response:', response.data);
+      try {
+        const response = await axios.get('/user/question', {
+          params: {
+            query: input,
+            age: "20",
+            gender: "남",
+            loc: "충주"
+          },
+        });
+        console.log('Server response:', response.data);
       const newMessage = {
         text: input,
         isUser: messages.length % 2 === 0, // 번갈아가며 왼쪽, 오른쪽 결정
@@ -26,12 +29,12 @@ const MainPage = () => {
       setInput('');
     
 
-      //   // 메시지를 추가하고 입력 필드를 초기화
-      //   setMessages([...messages, input]);
-      //   setInput('');
-      // } catch (error) {
-      //   console.error('Error sending message:', error);
-      // }
+        // 메시지를 추가하고 입력 필드를 초기화
+        setMessages([...messages, input]);
+        setInput('');
+      } catch (error) {
+        console.error('Error sending message:', error);
+      }
     }
   };
 

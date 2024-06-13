@@ -54,7 +54,7 @@ function SignupPage() {
         </label>
         <label className={styles.label}>
             이름
-            <input type="text" name="name" value={formData.id} onChange={handleChange} className={styles.input} />
+            <input type="text" name="name" value={formData.name} onChange={handleChange} className={styles.input} />
         </label>
         <label className={styles.label}>
             이메일
@@ -62,11 +62,11 @@ function SignupPage() {
         </label>
         <label className={styles.label}>
             나이
-            <input type="text" name="age" value={formData.id} onChange={handleChange} className={styles.input} />
+            <input type="text" name="age" value={formData.age} onChange={handleChange} className={styles.input} />
         </label>
         <label className={styles.label}>
             성별
-            <input type="text" name="gender" value={formData.id} onChange={handleChange} className={styles.input} />
+            <input type="text" name="gender" value={formData.gender} onChange={handleChange} className={styles.input} />
         </label>
         <button type="submit" className={styles.button}>회원가입</button>
         </form>

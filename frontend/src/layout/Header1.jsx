@@ -9,8 +9,12 @@ const Header1 = () => {
         <div className={styles.logo}>로고위치</div>
       </Link>
       <div className={styles.headerButtons}>
+      <Link to="/LoginPage">
         <button className={styles.headerButton}>로그인</button>
+      </Link>
+      <Link to="/SignupPage">
         <button className={styles.headerButton}>회원가입</button>
+        </Link>
       </div>
     </header>
   );
