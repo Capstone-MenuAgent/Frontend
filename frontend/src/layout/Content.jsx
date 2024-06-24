@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from '../styles/Content.module.css';
+import axios from "axios";
 
 const Content = () => {
-  const items = [
-    '점심 메뉴 추천해줘',
-    '한식으로 추천해줘',
-    '한식, 중식, 양식, 일식중에 선택해주세요',
-    '한식으로는, 1. 불고기 2. 김치찌개 3. 된장찌개 4. 잡채 등이 있습니다.'
-  ];
+  const [Logs, setLogs] = useState([]);
+
+  useEffect(() => {
+    axios.get('user/chatlog', {
+        param : {
+          userId : 1
+        }
+    }).then(res=>{
+      setLogs(res.Logs)
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+  })
 
   return (
-    <div className={styles.content}>
-      {items.map((item, index) => (
-        <p key={index} className={index % 2 === 0 ? styles.left : styles.right}>
-          {item}
-        </p>
+    <div className={styles.container}>
+      {data.map((item, index) => (
+        <div key={index} className={styles.logItem}>
+          <div className={styles.leftSide}>
+            {item.role === 'human' ? item.log : ''}
+          </div>
+          <div className={styles.rightSide}>
+            {item.role !== 'human' ? item.log : ''}
+          </div>
+        </div>
       ))}
     </div>
   );
-};
+}
 
 export default Content;

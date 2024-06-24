@@ -1,18 +1,29 @@
-.content {
-    flex-grow: 1;
-    padding: 20px;
-  }
-  
-  .content p {
-    font-size: 18px;
-    margin: 10px 0;
-  }
-  
-  .left {
-    text-align: left;
-  }
-  
-  .right {
-    text-align: right;
-  }
-  
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logItem {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.leftSide, .rightSide {
+  flex: 1;
+  padding: 10px;
+}
+
+.leftSide {
+  background-color: #f0f0f0;
+}
+
+.rightSide {
+  background-color: #e0e0e0;
+}

@@ -25,16 +25,16 @@ const MainPage = () => {
             query: input,
           },
         });
-        console.log('Server response:', response.data);
+        // console.log('Server response:', response.data);
 
         setInput('');
 
-        // const newMessage = {
-        //   text: response.data.ans,
-        //   isUser: messages.length % 2 === 0, // 번갈아가며 왼쪽, 오른쪽 결정
-        // };
+        const newMessage = {
+          text: response.data.ans,
+          isUser: messages.length % 2 === 0, // 번갈아가며 왼쪽, 오른쪽 결정
+        };
 
-        // setMessages([...messages, newMessage]);
+        setMessages([...messages, newMessage]);
 
 
     
