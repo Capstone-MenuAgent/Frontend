@@ -1,0 +1,18 @@
+.content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .content p {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .left {
+    text-align: left;
+  }
+  
+  .right {
+    text-align: right;
+  }
+  

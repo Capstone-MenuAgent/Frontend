@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .nav {
+    width: 150px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+  }
+  
+  .nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .nav li {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .nav .selected {
+    font-weight: bold;
+  }
+  
+  .nav .submenu {
+    margin-left: 10px;
+  }
+  
+  .main {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  .section h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .section p {
+    margin-bottom: 10px;
+  }
+  
+  .section ol {
+    padding-left: 20px;
+    list-style: decimal;
+  }
+  

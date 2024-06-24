@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/LoginPage.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import Header2 from '../layout/Header2';
+import Header1 from '../layout/Header1';
 import axios from 'axios';
 
 function LoginPage() {
@@ -20,13 +20,14 @@ function LoginPage() {
   };
 
   const handleSubmit = (data) => {
+      data.preventDefault();
       axios.post("/user/login",
       {
-          id: data.id,
-          password: data.password
+          email: formData.email,
+          password: formData.password
 
       }).then((res) => {
-          alert(res.data)
+          alert(JSON.stringify(res.data))
           navigation('/MainPage')
           })      
   };
@@ -34,16 +35,16 @@ function LoginPage() {
   return (
     <div>
         <div>
-            <Header2/>
+            <Header1/>
         </div>
         <div className={styles.container}>
         <form onSubmit={handleSubmit}>
             <input 
-            type="text" 
-            name="id" 
-            value={formData.id} 
+            type="email" 
+            name="email" 
+            value={formData.email} 
             onChange={handleChange} 
-            placeholder="아이디" 
+            placeholder="이메일" 
             className={styles.inputField} 
             />
             <input 
@@ -55,9 +56,9 @@ function LoginPage() {
             className={styles.inputField} 
             />
             <div className={styles.buttonGroup}>
-                <Link to='/MainPage'>
+                {/* <Link to='/MainPage'> */}
                     <button type="submit" className={styles.button}>로그인</button>
-                </Link>
+                {/* </Link> */}
                 <Link to='/SignupPage'>
                     <button type="button" className={styles.button}>회원가입</button>
                 </Link>

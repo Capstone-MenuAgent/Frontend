@@ -3,8 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 93vh;
-  background-color: #f0f0f0;
+  height: 94vh;
+  background-color: #F5F5F5;
 }
 
 .chatBox {
@@ -12,14 +12,14 @@
   flex-direction: column;
   justify-content: space-between;
   width: 99.5%;
-  height: 92vh;
+  height: 93vh;
   border: 1px solid #ccc;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: #F5F5F5;
 }
 
 .chatHeader {
-  background-color: #e0e0e0;
+  background-color: #F5F5F5;
   padding: 10px;
   border-bottom: 1px solid #ccc;
   border-radius: 10px 10px 0 0;
@@ -35,7 +35,7 @@
 
 .chatFooter {
   display: flex;
-  padding: 20px;
+  padding: 50px;
   border-top: 1px solid #ccc;
 }
 
@@ -74,12 +74,14 @@
   background-color: #007bff;
   color: white;
   align-self: flex-start;
+  /* margin-left: 80px; */
 }
 
 .rightBubble {
   background-color: #e0e0e0;
   color: black;
   align-self: flex-end;
+  /* margin-right: 80px; */
   margin-left: auto;
   text-align: right;
 }
