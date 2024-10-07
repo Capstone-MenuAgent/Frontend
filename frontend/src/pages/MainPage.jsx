@@ -3,6 +3,7 @@ import styles from '../styles/MainPage.module.css';
 import axios from 'axios';
 import Header2 from '../layout/Header2';
 import Alert from 'react-bootstrap/Alert';
+import { Button } from 'react-bootstrap';
 
 const MainPage = () => {
   const [messages, setMessages] = useState([]);
@@ -16,7 +17,7 @@ const MainPage = () => {
         text: input,
         isUser: messages.length % 2 === 0, // 번갈아가며 왼쪽, 오른쪽 결정
       };
-
+      setInput('');
       setMessages([...messages, newMessage]);
 
       try {
@@ -49,9 +50,10 @@ const MainPage = () => {
         <Header2/>
     <div className={styles.container}>
       <div className={styles.chatBox}>
+        
       <div className={styles.chatContent}>
         {show && 
-          <Alert variant="light" onClose={() => setShow(false)} dismissible>
+          <Alert variant="light" dismissible>
           <Alert.Heading>Tip!</Alert.Heading>
             <p>
               "점심을 알려줘"와 같은 질문을 한다면 메뉴와 식당까지 정해서 길찾기 및 예약 사이트까지 안내해드립니다.
@@ -67,6 +69,8 @@ const MainPage = () => {
               {msg.text}
             </div>
           ))}
+          <iframe className={styles.iframeStyle} src='https://map.naver.com/p/search/%EC%B6%A9%EC%A3%BC%20%EC%9D%8C%EC%8B%9D%EC%A0%90/place/17505093?c=14.69,0,0,0,dh&placePath=%3Fentry%3Dbmp'></iframe>
+          <Button className='float-right' style={{position: 'absolute', right: 0, marginRight: "5%"}}>예약 페이지 제거</Button>
         </div>
         <div className={styles.chatFooter}>
           <input

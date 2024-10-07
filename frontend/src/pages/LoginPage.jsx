@@ -56,9 +56,9 @@ function LoginPage() {
             className={styles.inputField} 
             />
             <div className={styles.buttonGroup}>
-                {/* <Link to='/MainPage'> */}
+                <Link to='/MainPage'>
                     <button type="submit" className={styles.button}>로그인</button>
-                {/* </Link> */}
+                </Link>
                 <Link to='/SignupPage'>
                     <button type="button" className={styles.button}>회원가입</button>
                 </Link>

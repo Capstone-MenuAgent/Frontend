@@ -15,7 +15,7 @@ const Header2 = () => {
         <Button variant='dark'>정보수정</Button>
         </Link>
         <Link to='/HistoryPage'>
-        <Button variant='dark'>사용기록</Button>
+        <Button variant='dark' className='ms-2'>사용기록</Button>
         </Link>
       </div>
     </header>

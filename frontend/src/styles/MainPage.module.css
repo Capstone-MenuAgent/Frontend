@@ -5,6 +5,8 @@
   justify-content: center;
   height: 94vh;
   background-color: #F5F5F5;
+  font-family: 'laundry';
+  border-radius: 10px;
 }
 
 .chatBox {
@@ -16,6 +18,7 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #F5F5F5;
+  border-radius: 10px;
 }
 
 .chatHeader {
@@ -63,7 +66,7 @@
 }
 
 .messageBubble {
-  max-width: 49%;
+  width: max-content;
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 15px;
@@ -84,4 +87,11 @@
   /* margin-right: 80px; */
   margin-left: auto;
   text-align: right;
+}
+
+.iframeStyle {
+  margin-left: 2%;
+  width: 96%;
+  height: 80%;
+  /* float: inherit; */
 }

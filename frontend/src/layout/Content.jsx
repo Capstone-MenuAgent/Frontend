@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import styles from '../styles/Content.module.css';
 import axios from "axios";
 
@@ -20,7 +20,7 @@ const Content = () => {
 
   return (
     <div className={styles.container}>
-      {data.map((item, index) => (
+      {/* {data.map((item, index) => (
         <div key={index} className={styles.logItem}>
           <div className={styles.leftSide}>
             {item.role === 'human' ? item.log : ''}
@@ -29,7 +29,7 @@ const Content = () => {
             {item.role !== 'human' ? item.log : ''}
           </div>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/Signup.module.css'; // Import the CSS module
 import Header1 from '../layout/Header1';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function SignupPage() {
   const [formData, setFormData] = useState({
@@ -72,7 +72,9 @@ function SignupPage() {
             성별
             <input type="text" name="gender" value={formData.gender} onChange={handleChange} className={styles.input} />
         </label>
+        <Link to='/MainPage'>
         <button type="submit" className={styles.button}>회원가입</button>
+        </Link>
         </form>
     </div>
   );

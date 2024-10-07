@@ -11,10 +11,10 @@ const Header1 = () => {
       </Link>
       <div className={styles.headerButtons}>
       <Link to='/LoginPage'>  
-        <button className={styles.headerButton}>로그인</button>
+        <Button variant='dark'>로그인</Button>
       </Link>
       <Link to='/SignupPage'>
-        <button className={styles.headerButton}>회원가입</button>
+        <Button variant='dark' className='ms-2'>회원가입</Button>
       </Link>
       </div>
     </header>
