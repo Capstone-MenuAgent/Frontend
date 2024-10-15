@@ -16,3 +16,8 @@ code {
   font-family: 'laundry';
   src: url('./font/laundryGodic\ Regular.ttf');
 }
+
+@font-face {
+  font-family: 'laundryBold';
+  src: url('./font/laundryGodic\ Bold.ttf');
+}

@@ -8,7 +8,11 @@ import { Button } from 'react-bootstrap';
 const MainPage = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
+
+  // const handleMap = () => {
+  //   setShow(!show);
+  // }
 
 
  const handleSend = async () => {
@@ -52,14 +56,13 @@ const MainPage = () => {
       <div className={styles.chatBox}>
         
       <div className={styles.chatContent}>
-        {show && 
-          <Alert variant="light" dismissible>
+        <Alert variant="light" dismissible>
           <Alert.Heading>Tip!</Alert.Heading>
             <p>
               "점심을 알려줘"와 같은 질문을 한다면 메뉴와 식당까지 정해서 길찾기 및 예약 사이트까지 안내해드립니다.
             </p>
-          </Alert>}
-          {messages.map((msg, index) => (
+        </Alert>
+            {messages.map((msg, index) => (
             <div
               key={index}
               className={`${styles.messageBubble} ${
@@ -69,9 +72,18 @@ const MainPage = () => {
               {msg.text}
             </div>
           ))}
+          
+          {/* 예약페이지 */}
+          {!show&&
+          <Button className='position-relative top-0 end-0' onClick={() => setShow(!show)}>예약 페이지 생성</Button>}
+          {show &&
+          <div>
           <iframe className={styles.iframeStyle} src='https://map.naver.com/p/search/%EC%B6%A9%EC%A3%BC%20%EC%9D%8C%EC%8B%9D%EC%A0%90/place/17505093?c=14.69,0,0,0,dh&placePath=%3Fentry%3Dbmp'></iframe>
-          <Button className='float-right' style={{position: 'absolute', right: 0, marginRight: "5%"}}>예약 페이지 제거</Button>
+          <Button className='float-right' style={{position: 'absolute', right: 0, marginRight: "5%"}} onClick={() => setShow(!show)}>예약 페이지 제거</Button>
+          </div>
+          }
         </div>
+        {/* 채팅 */}
         <div className={styles.chatFooter}>
           <input
             type="text"
