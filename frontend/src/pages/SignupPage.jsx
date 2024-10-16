@@ -72,7 +72,7 @@ function SignupPage() {
             성별
             <input type="text" name="gender" value={formData.gender} onChange={handleChange} className={styles.input} />
         </label>
-        <Link to='/MainPage'>
+        <Link to='/LoginPage'>
         <button type="submit" className={styles.button}>회원가입</button>
         </Link>
         </form>

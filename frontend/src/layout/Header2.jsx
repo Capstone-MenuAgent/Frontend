@@ -20,7 +20,7 @@ const Header2 = () => {
     if(data === 'success'){
       navigation('/');
     };
-    navigation('/');
+    navigation('/HelloPage');
   }
 
   return (

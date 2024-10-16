@@ -6,7 +6,7 @@ import axios from 'axios';
 
 function LoginPage() {
   const [formData, setFormData] = useState({
-    id: '',
+    email: '',
     password: ''
   });
   const navigation = useNavigate();
@@ -21,7 +21,7 @@ function LoginPage() {
 
   const handleSubmit = (data) => {
       data.preventDefault();
-      axios.post("/user/login",
+      axios.post("/api/v1/login",
       {
           email: formData.email,
           password: formData.password
@@ -30,6 +30,8 @@ function LoginPage() {
           alert(JSON.stringify(res.data))
           navigation('/MainPage')
           })      
+      
+      navigation('/MainPage')
   };
 
   return (
@@ -56,9 +58,7 @@ function LoginPage() {
             className={styles.inputField} 
             />
             <div className={styles.buttonGroup}>
-                <Link to='/MainPage'>
-                    <button type="submit" className={styles.button}>로그인</button>
-                </Link>
+                <button type="submit" className={styles.button}>로그인</button>
                 <Link to='/SignupPage'>
                     <button type="button" className={styles.button}>회원가입</button>
                 </Link>
