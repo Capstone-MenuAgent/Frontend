@@ -1,9 +1,16 @@
+.divStyle{
+  overflow: hidden;
+  font-family: 'laundry';
+}
+
 .formContainer {
-    width: 400px;
-    margin: 50px auto;
-    padding: 20px;
+    width: 30vw;
+    margin: 10vh auto;
+    margin-bottom: 2vh;
+    padding: 25px;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    height: 88vh;
   }
   
   .label {
@@ -13,14 +20,19 @@
   
   .input {
     width: calc(100% - 10px);
-    padding: 5px;
-    margin-top: 5px;
+    display: block;
+    margin: 3px 0;
+    padding: 8px;
+    border-radius: 10px;
   }
   
   .button {
-    width: 100%;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border: none;
+    padding: 5px 5px;
+    margin-top: 1vh;
+    margin-left: 10%;
     cursor: pointer;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 80%;
   }

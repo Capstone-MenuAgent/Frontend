@@ -1,7 +1,11 @@
 .sidebar {
-    width: 200px;
+    font-family: 'laundry';
+    margin-top: 8vh;
+    width: 16vw;
+    height: 92vh;
     background-color: #f0f0f0;
     padding: 10px;
+    padding-left: 2vw;
   }
   
   .sidebar ul {
@@ -11,10 +15,16 @@
   
   .sidebar ul li {
     margin: 5px 0;
-    cursor: pointer;
+    cursor: pointer;  
   }
   
   .sidebar ul li ul {
     margin-left: 20px;
+  }
+
+  .clickP{
+    text-decoration: underline;
+    text-underline-position : under;
+    font-family: 'laundryBold';
   }
   

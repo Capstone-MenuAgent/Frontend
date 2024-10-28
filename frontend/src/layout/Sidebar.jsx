@@ -10,14 +10,14 @@ const Sidebar = () => {
     <div className={styles.sidebar}>
       <ul>
         <li>2023</li>
-        <li><p onClick={() => setShow2024(!show2024)}>2024</p>
+        <li><p className={`${show2024 ? styles.clickP : ''}`} onClick={() => setShow2024(!show2024)}>2024</p>
           {show2024 && (
             <ul>
               <li>3월</li>
-              <li><p onClick={() => setShowApril(!showApril)}>4월</p>
+              <li><p className={`${showApril ? styles.clickP : ''}`} onClick={() => setShowApril(!showApril)}>4월</p>
                 {showApril && (
                     <ul>
-                        <li><p onClick={() => setShow8th(!show8th)}>8일</p>
+                        <li><p className={`${show8th ? styles.clickP : ''}`} onClick={() => setShow8th(!show8th)}>8일</p>
                             {show8th && (
                                 <ul>
                                     <li>점심 메뉴 추천</li>

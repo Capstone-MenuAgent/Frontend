@@ -10,9 +10,11 @@ const MainPage = () => {
   const [input, setInput] = useState('');
   const [show, setShow] = useState(false);
 
-  // const handleMap = () => {
-  //   setShow(!show);
-  // }
+  const activeEnter = (e) => {
+    if(e.key == "Enter"){
+      handleSend();
+    }
+  }
 
 
  const handleSend = async () => {
@@ -90,6 +92,7 @@ const MainPage = () => {
             className={styles.chatInput}
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => activeEnter(e)}
             placeholder="메시지를 입력하세요..."
           />
           <button type='submit' className={styles.chatButton} onClick={handleSend}>

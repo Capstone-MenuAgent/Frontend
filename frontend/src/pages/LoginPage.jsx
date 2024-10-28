@@ -35,10 +35,8 @@ function LoginPage() {
   };
 
   return (
-    <div>
-        <div>
-            <Header1/>
-        </div>
+    <div className={styles.divStyle}>
+      <Header1/>
         <div className={styles.container}>
         <form onSubmit={handleSubmit}>
             <input 

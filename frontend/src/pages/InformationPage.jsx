@@ -59,7 +59,7 @@ function InformationPage() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.divStyle}>
         <Header2/>
         <form onSubmit={handleSubmit} className={styles.formContainer}>
         <label className={styles.label}>

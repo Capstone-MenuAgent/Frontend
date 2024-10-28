@@ -5,6 +5,25 @@ import axios from "axios";
 const Content = () => {
   const [Logs, setLogs] = useState([]);
 
+  const data = [
+    {
+      "role" : "human",
+      "log" : "점심 추천해줘"
+    },
+    {
+      "role" : "AI",
+      "log" : "오늘 날씨는 선선하네요, 두꺼비네의 순대 국밥을 추천드려요."
+    },
+    {
+      "role" : "AI",
+      "log" : "아니면 생각나는 감자탕의 뼈해장국은 어떠신가요?"      
+    },
+    {      
+      "role" : "AI",
+      "log" : "아니면 한솥의 치킨마요 덮밥은 어떠신가요?"
+    }
+  ]
+
   useEffect(() => {
     axios.get('user/chatlog', {
         param : {
@@ -20,16 +39,18 @@ const Content = () => {
 
   return (
     <div className={styles.container}>
-      {/* {data.map((item, index) => (
-        <div key={index} className={styles.logItem}>
-          <div className={styles.leftSide}>
-            {item.role === 'human' ? item.log : ''}
-          </div>
-          <div className={styles.rightSide}>
-            {item.role !== 'human' ? item.log : ''}
-          </div>
+      <div className={styles.chatBox}>
+        <div className={styles.chatContent}>
+      {data.map((item, index) => (
+        <div 
+        className={`${styles.messageBubble} ${
+          item.role == "human" ? styles.leftBubble : styles.rightBubble
+        }`}>
+          {item.log}
         </div>
-      ))} */}
+      ))}
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,11 +1,17 @@
-.container {
+.container {   
+  margin-top: 8vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  height: 92vh;
+  /* border: 1px solid #ccc; */
+  border-radius: 10px;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  width: 100vw;
 }
 
-.logItem {
+/* .logItem {
   display: flex;
   justify-content: space-between;
   width: 80%;
@@ -26,4 +32,57 @@
 
 .rightSide {
   background-color: #e0e0e0;
+} */
+.chatBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 92vh;
+  /* border: 1px solid #ccc; */
+  border-radius: 10px;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  width: 70%;
+  margin: 2vh auto;
+}::-webkit-scrollbar{
+  display: none;
+}
+
+.chatHeader {
+  background-color: #F5F5F5;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  border-radius: 10px 10px 0 0;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.chatContent {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.messageBubble {
+  width: max-content;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  word-wrap: break-word;
+}
+
+.leftBubble {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-start;
+  /* margin-left: 80px; */
+}
+
+.rightBubble {
+  background-color: #e0e0e0;
+  color: black;
+  align-self: flex-end;
+  /* margin-right: 80px; */
+  margin-left: auto;
+  text-align: right;
 }
