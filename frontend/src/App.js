@@ -10,6 +10,7 @@ import SignupPage from './pages/SignupPage';
 import HelloPage from './pages/HelloPage.jsx';
 import HistoryPage from './pages/HistoryPage.jsx'
 import InformationPage from './pages/InformationPage.jsx';
+import MainPageSub from './pages/MainPageSub.jsx';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/LoginPage" element={<LoginPage />}></Route>
         <Route path="/SignupPage" element={<SignupPage />}></Route>
         <Route path="/Mainpage" element={<MainPage />}></Route>
+        <Route path="/MainpageSub" element={<MainPageSub />} />
         <Route path="/HistoryPage" element={<HistoryPage />}></Route>
         <Route path="/InformationPage" element={<InformationPage />}></Route>
       </Routes>

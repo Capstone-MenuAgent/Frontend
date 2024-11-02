@@ -3,16 +3,17 @@
 }
 
 .container {
-  width: 30vw;
+  width: 35vw;
+  max-width: 400px;
   margin: auto;
-  margin-top: 12vh;
-  margin-bottom: 40vh;
+  margin-top: 20vh;
+  margin-bottom: 25vh;
   padding: 50px;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
   font-family: 'laundry';
   border-radius: 10px;
-  height: 48vh;
+  height: 50vh;
 }
 
 .inputField {

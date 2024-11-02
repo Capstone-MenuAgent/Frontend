@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../styles/MainPage.module.css';
+import styles from '../styles/MainPageSub.module.css';
 import axios from 'axios';
 import Header2 from '../layout/Header2';
 import Alert from 'react-bootstrap/Alert';
@@ -64,14 +64,23 @@ const MainPage = () => {
               "점심을 알려줘"와 같은 질문을 한다면 메뉴와 식당까지 정해서 길찾기 및 예약 사이트까지 안내해드립니다.
             </p>
         </Alert>
-            {messages.map((msg, index) => (
+            {messages.map((msg, index) => (              
             <div
               key={index}
-              className={`${styles.messageBubble} ${
-                msg.isUser ? styles.leftBubble : styles.rightBubble
+              className={`${styles.chatDiv} ${
+                msg.isUser ? styles.leftChatDiv : styles.rightChatDiv
               }`}
             >
-              {msg.text}
+              <div>
+                {msg.isUser ? 
+                  <img className={styles.image} src={process.env.PUBLIC_URL+'/img/consider.png'} /> : 
+                  <img className={styles.image} src={process.env.PUBLIC_URL+'/img/Ai.png'} />}
+              </div>
+              <div className={`${styles.textDiv} ${
+                msg.isUser ? styles.leftTextDiv : styles.rightTextDiv
+              }`}>
+                {msg.text}
+              </div>
             </div>
           ))}
           

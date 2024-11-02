@@ -4,9 +4,9 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: 84vw;
   background-color: #F5F5F5;
   font-family: 'laundry';
+  border-radius: 10px;
 }
 
 .chatBox {
@@ -15,10 +15,11 @@
   flex-direction: column;
   justify-content: space-between;
   height: 92vh;
-  /* border: 1px solid #000000; */
+  /* border: 1px solid #ccc; */
   border-radius: 10px;
   background-color: #F5F5F5;
-  width: 64vw;
+  border-radius: 10px;
+  width: 75vw;
 }::-webkit-scrollbar{
   display: none;
 }
@@ -38,6 +39,64 @@
   overflow-y: auto;
 }
 
+.chatFooter {
+  display: flex;
+  padding: 30px;
+  border-top: 1px solid #ccc;
+}
+
+.chatInput {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-right: 40px;
+}
+
+.chatButton {
+  padding: 10px 30px;
+  background-color: #cae1c2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.chatButton:hover {
+  background-color: #779fca;
+}
+
+/* .messageBubble {
+  width: max-content;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  word-wrap: break-word;
+}
+
+.leftBubble {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-start;
+}
+
+.rightBubble {
+  background-color: #e0e0e0;
+  color: black;
+  align-self: flex-end;
+  margin-left: auto;
+  text-align: right;
+} */
+
+.iframeStyle {
+  margin-left: 2%;
+  width: 96%;
+  height: 80%;
+  /* float: inherit; */
+}
+
 .image{
   width: 10vh;
   height: 10vh;
@@ -47,7 +106,7 @@
 }
 
 .chatDiv{
-  width: 100%;
+  width: 74vw;
   height: max-content;
   margin-bottom: 10px;
   padding: 10px;
@@ -76,7 +135,6 @@
   color: black;
   align-content: center;
   padding: 5px;
-  padding-right: 8px;
   border-radius: 5px;
   margin-left: 10px;
 }
@@ -102,7 +160,6 @@
   color: black;
   align-content: center;
   padding: 5px;
-  padding-left: 8px;
   border-radius: 15px;
   margin-right: 10px;
 

@@ -41,7 +41,7 @@ function SignupPage() {
   };
 
   return (
-    <div>
+    <div className={styles.divStyle}>
         <Header1/>
         <form onSubmit={handleSubmit} className={styles.formContainer}>
         <label className={styles.label}>

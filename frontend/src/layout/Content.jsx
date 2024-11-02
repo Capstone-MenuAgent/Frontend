@@ -41,14 +41,25 @@ const Content = () => {
     <div className={styles.container}>
       <div className={styles.chatBox}>
         <div className={styles.chatContent}>
-      {data.map((item, index) => (
-        <div 
-        className={`${styles.messageBubble} ${
-          item.role == "human" ? styles.leftBubble : styles.rightBubble
-        }`}>
-          {item.log}
-        </div>
-      ))}
+        {data.map((msg, index) => (              
+            <div
+              key={index}
+              className={`${styles.chatDiv} ${
+                msg.role==="human" ? styles.leftChatDiv : styles.rightChatDiv
+              }`}
+            >
+              <div>
+                {msg.role==="human" ? 
+                  <img className={styles.image} src={process.env.PUBLIC_URL+'/img/consider.png'} /> : 
+                  <img className={styles.image} src={process.env.PUBLIC_URL+'/img/Ai.png'} />}
+              </div>
+              <div className={`${styles.textDiv} ${
+                msg.role==="human" ? styles.leftTextDiv : styles.rightTextDiv
+              }`}>
+                {msg.log}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
