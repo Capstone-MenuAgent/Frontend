@@ -36,12 +36,12 @@ const Header2 = () => {
       <Button variant="secondary">로고위치</Button>     
       </Link>
       <div>
-        <Button variant='dark' onClick={Logout}>로그아웃</Button>
+        <Link to='/MainPage'>
+        <Button variant='dark'>메인페이지</Button>
+        </Link>
+        <Button variant='dark' className='ms-2' onClick={Logout}>로그아웃</Button>
         <Link to='/InformationPage'>
         <Button variant='dark' className='ms-2'>정보수정</Button>
-        </Link>
-        <Link to='/HistoryPage'>
-        <Button variant='dark' className='ms-2'>사용기록</Button>
         </Link>
       </div>
     </header>

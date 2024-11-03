@@ -21,13 +21,12 @@ function LoginPage() {
 
   const handleSubmit = (data) => {
       data.preventDefault();
-      axios.post("/api/v1/login",
+      axios.post('/api/v1/login',
       {
           email: formData.email,
           password: formData.password
-
       }).then((res) => {
-        if(res.status==200){
+        if(res.status===200){
           if(localStorage.getItem("refreshtoken")){
             localStorage.removeItem("accesstoken")
             localStorage.removeItem("refreshtoken")

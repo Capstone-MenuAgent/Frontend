@@ -6,25 +6,6 @@ import api from '../lib/customAPI'
 const Content = () => {
   const [Logs, setLogs] = useState([]);
 
-  const data = [
-    {
-      "role" : "human",
-      "log" : "점심 추천해줘"
-    },
-    {
-      "role" : "AI",
-      "log" : "오늘 날씨는 선선하네요, 두꺼비네의 순대 국밥을 추천드려요."
-    },
-    {
-      "role" : "AI",
-      "log" : "아니면 생각나는 감자탕의 뼈해장국은 어떠신가요?"      
-    },
-    {      
-      "role" : "AI",
-      "log" : "아니면 한솥의 치킨마요 덮밥은 어떠신가요?"
-    }
-  ]
-
   useEffect(() => {
     api.get('/api/v1/history/info', {
     }).then(res=>{

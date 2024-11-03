@@ -18,13 +18,6 @@ const Sidebar = () => {
                 {showApril && (
                     <ul>
                         <li><p className={`${show8th ? styles.clickP : ''}`} onClick={() => setShow8th(!show8th)}>8일</p>
-                            {show8th && (
-                                <ul>
-                                    <li>점심 메뉴 추천</li>
-                                    <li>저녁 메뉴 추천</li>
-                                    <li>운동 추천</li>
-                                </ul>
-                            )}
                         </li>
                       </ul>
                     )}
