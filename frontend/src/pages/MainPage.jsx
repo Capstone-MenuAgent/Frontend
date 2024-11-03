@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header2 from '../layout/Header2';
 import Alert from 'react-bootstrap/Alert';
 import { Button } from 'react-bootstrap';
+import api from '../lib/customAPI'
 
 const MainPage = () => {
   const [messages, setMessages] = useState([]);
@@ -27,14 +28,14 @@ const MainPage = () => {
       setMessages([...messages, newMessage]);
 
       try {
-        const response = await axios.get('/agent/question', {
+        const response = await api.get('/agent/question', {
           params: {
             query: input,
           },
         });
         // console.log('Server response:', response.data);
 
-        setInput('');
+        // setInput('');`
 
         const newMessage = {
           text: response.data.ans,

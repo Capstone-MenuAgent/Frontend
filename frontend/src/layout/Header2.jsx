@@ -18,6 +18,8 @@ const Header2 = () => {
       console.error(e);
     }
     if(data === 'success'){
+      localStorage.removeItem("accesstoken");
+      localStorage.removeItem("refreshtoken");
       navigation('/');
     };
     navigation('/HelloPage');

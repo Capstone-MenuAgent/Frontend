@@ -27,11 +27,17 @@ function LoginPage() {
           password: formData.password
 
       }).then((res) => {
-          alert(JSON.stringify(res.data))
-          navigation('/MainPage')
-          })      
+        if(res.status==200){
+          localStorage.setItem("accesstoken", res.headers['authorization']);
+          localStorage.setItem("refreshtoken", res.headers['authorization-refresh']);
+          alert(JSON.stringify(res.data));
+          navigation('/MainPage');
+          // axios.defaults.headers.common[
+          //   'Authorization'
+          // ] = `Bearer ${res.headers['authorization']}`
+        }})      
       
-      navigation('/MainPage')
+      navigation('/MainPage');  
   };
 
   return (
