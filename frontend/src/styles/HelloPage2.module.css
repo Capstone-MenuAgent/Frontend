@@ -1,51 +1,66 @@
 .outsideContainer {
-    background-color: #f5f5f5;
-    padding: 10% 10% 10% 10%;
-    width: 100vw;
-    height: 100vh;
-    font-family: 'laundryBold';
-    font-size: 2vw;
-  }
-  
+  background-color: #f5f5f5;
+  padding: 10% 10% 10% 10%;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'laundryBold';
+  font-size: 2vw;
+}
+
 .insideContainer {
+  display: flex;
+  flex-wrap: wrap; /* 자식 요소들을 가로로 배치하고 줄바꿈 가능 */
+  justify-content: center; /* 가로 방향으로 중앙 정렬 */
+  align-items: center; /* 세로 방향으로 중앙 정렬 */
   width: 100%;
   height: 100%;
-  /* border: 1px solid #000; */
+  max-width: 70vw;
+  max-height: 80vh;
+  margin: auto;
+}
+
+.oddDiv, .evenDiv {
+  display: flex; /* Flexbox 적용 */
+  flex-direction: column; /* 내용물을 수직으로 배치 */
+  justify-content: center; /* 내부 콘텐츠를 수직 중앙 정렬 */
+  align-items: center; /* 내부 콘텐츠를 가로 중앙 정렬 */
+  
+  width: calc(25% - 20px); /* 각 div의 너비는 전체의 약 25% (간격 고려) */
+  margin: 10px; /* div 간격 추가 */
+  
+  height: max-content; /* 콘텐츠에 맞게 자동 높이 조정 */
 }
 
 .oddDiv {
-  padding: 1%;
-  width: 25%;
-  height: max-content;
-  float: left;
+  margin-top: -8vh;
   background-color: rgb(255, 244, 243);
 }
 
 .evenDiv {
-  margin-top: 5%;
-  width: 25%;
-  height: max-content;
-  float: left;
+  margin-top: 8vh;
   background-color: rgb(238, 250, 244);
 }
 
 .title {
-  width: 100%;
-  height: max-content;
+  width: max-content;
   text-align: center;
 }
 
 .text {
   width: 100%;
-  height: max-content;
   text-align: center;
-  font-family: 'laundry';
-  font-size: 1.5vw;
+  font-size: 1.4Svw;
+  padding-top: 1vh;
 }
 
 .img {
-  width: 80%;
-  height: auto;
-  padding: 3vw;
-}
+  width: auto; /* 이미지의 너비를 자동으로 설정 */
+  
+  max-width: 50%; /* 부모 컨테이너 너비의 최대 절반으로 제한 */
+  
+  height: auto; /* 높이는 비율에 맞게 자동 조정 */
 
+  padding: 0.5vh;
+  
+  margin: auto; /* 이미지를 가로 방향으로 중앙 정렬 */
+}
