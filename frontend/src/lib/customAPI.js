@@ -1,18 +1,18 @@
 import axios from "axios";
 
 const Api = axios.create({
-    baseURL: 'localhost:8080',
-    timeout: 1000,
+    baseURL: '',
+    timeout: 10000,
     params: {},
     headers: {
         "Content-Type": "application/json",
-        withCredentials: true,
-    }
+    },
+    withCredentials: true,
 });
 
 Api.interceptors.request.use(
     function (config) {
-        config.headers.common['Authorization'] = `Bearer ${localStorage.getItem('accesstoken')}`
+        config.headers.Authorization = `Bearer ${localStorage.getItem('accesstoken')}`
         return config;
     },
     function(error){

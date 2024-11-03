@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header2 from '../layout/Header2';
 import Alert from 'react-bootstrap/Alert';
 import { Button } from 'react-bootstrap';
+import api from '../lib/customAPI'
 
 const MainPage = () => {
   const [messages, setMessages] = useState([]);
@@ -17,32 +18,32 @@ const MainPage = () => {
   }
 
 
- const handleSend = async () => {
+  const handleSend = async () => {
     if (input.trim()) {
       const newMessage = {
         text: input,
-        isUser: messages.length % 2 === 0, // 번갈아가며 왼쪽, 오른쪽 결정
+        isUser: 1, // 번갈아가며 왼쪽, 오른쪽 결정
       };
       setInput('');
-      setMessages([...messages, newMessage]);
+      setMessages((prevMessages) => [...prevMessages, newMessage]);
 
       try {
-        const response = await axios.get('/agent/question', {
+        const response = await api.get('/api/v1/agent/question', {
           params: {
             query: input,
           },
         });
         // console.log('Server response:', response.data);
 
-        setInput('');
+        // setInput('');`
 
-        const newMessage = {
-          text: response.data.ans,
-          isUser: messages.length % 2 === 0, // 번갈아가며 왼쪽, 오른쪽 결정
+        const serverMessage = {
+          text: response.data.answer,
+          isUser: 0, // 번갈아가며 왼쪽, 오른쪽 결정
         };
 
-        setMessages([...messages, newMessage]);
-
+        setMessages((prevMessages) => [...prevMessages, serverMessage]);
+ 
 
     
       } catch (error) {

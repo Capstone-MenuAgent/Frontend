@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import styles from '../styles/Content.module.css';
 import axios from "axios";
+import api from '../lib/customAPI'
 
 const Content = () => {
   const [Logs, setLogs] = useState([]);
@@ -25,38 +26,36 @@ const Content = () => {
   ]
 
   useEffect(() => {
-    axios.get('user/chatlog', {
-        param : {
-          userId : 1
-        }
+    api.get('/api/v1/history/info', {
     }).then(res=>{
-      setLogs(res.Logs)
+      setLogs(res.data.historyData)
+      console.log(res.data.historyData)
     })
     .catch(error => {
       console.error('Error fetching data:', error);
     });
-  })
+  }, []);
 
   return (
     <div className={styles.container}>
       <div className={styles.chatBox}>
         <div className={styles.chatContent}>
-        {data.map((msg, index) => (              
+        {Logs.map((msg, index) => (              
             <div
               key={index}
               className={`${styles.chatDiv} ${
-                msg.role==="human" ? styles.leftChatDiv : styles.rightChatDiv
+                msg.role==="HUMAN" ? styles.leftChatDiv : styles.rightChatDiv
               }`}
             >
               <div>
-                {msg.role==="human" ? 
+                {msg.role==="HUMAN" ? 
                   <img className={styles.image} src={process.env.PUBLIC_URL+'/img/consider.png'} /> : 
                   <img className={styles.image} src={process.env.PUBLIC_URL+'/img/Ai.png'} />}
               </div>
               <div className={`${styles.textDiv} ${
-                msg.role==="human" ? styles.leftTextDiv : styles.rightTextDiv
+                msg.role==="HUMAN" ? styles.leftTextDiv : styles.rightTextDiv
               }`}>
-                {msg.log}
+                {msg.chatLog}
               </div>
             </div>
           ))}

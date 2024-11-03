@@ -28,16 +28,20 @@ function LoginPage() {
 
       }).then((res) => {
         if(res.status==200){
+          if(localStorage.getItem("refreshtoken")){
+            localStorage.removeItem("accesstoken")
+            localStorage.removeItem("refreshtoken")
+          }
           localStorage.setItem("accesstoken", res.headers['authorization']);
           localStorage.setItem("refreshtoken", res.headers['authorization-refresh']);
-          alert(JSON.stringify(res.data));
+          // alert(JSON.stringify(res.data));
           navigation('/MainPage');
           // axios.defaults.headers.common[
           //   'Authorization'
           // ] = `Bearer ${res.headers['authorization']}`
         }})      
       
-      navigation('/MainPage');  
+      // navigation('/MainPage');  
   };
 
   return (
