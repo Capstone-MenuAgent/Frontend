@@ -68,33 +68,23 @@
   background-color: #779fca;
 }
 
-/* .messageBubble {
-  width: max-content;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 15px;
-  word-wrap: break-word;
-}
-
-.leftBubble {
-  background-color: #007bff;
-  color: white;
-  align-self: flex-start;
-}
-
-.rightBubble {
-  background-color: #e0e0e0;
-  color: black;
-  align-self: flex-end;
-  margin-left: auto;
-  text-align: right;
-} */
-
 .iframeStyle {
-  margin-left: 2%;
-  width: 96%;
-  height: 80%;
+  /* margin: 0.4vh; */
+  margin-right: 7vh;
+  width: 75vw;
+  height: 60vh;
   /* float: inherit; */
+}
+
+.iframeDiv{
+  /* padding: 0.5vh; */
+  position: relative;
+}
+
+.closeButton {
+  position: absolute; /* 부모 컨테이너(iframeDiv)를 기준으로 절대 위치 설정 */
+  margin-right: 6vh;
+  right: 5px; /* 오른쪽에서 10px 떨어진 위치 */
 }
 
 .image{
@@ -122,9 +112,10 @@
   display: flex;
   /* justify-content: flex-end; */
   flex-direction: row-reverse;
+  flex-wrap: wrap;
 }
 
-.textDiv{
+.textDiv {
 
 }
 
@@ -176,4 +167,16 @@
     margin-top: -8px;
     margin-right: -8px;
   }
+}
+
+.buttonContainer{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  margin-right: 7vh;
+  margin-top: 0.4vh;
+}
+
+.actionButton{
+  margin-left: 0.5vh;
 }
