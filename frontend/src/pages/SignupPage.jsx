@@ -55,7 +55,7 @@ function SignupPage() {
 
   const emailCheck = (data) => {    
     data.preventDefault();
-    axios.get("/api/v1/member/", {
+    axios.get("/api/v1/member/check-email", {
       params: {
         email: formData.email
       }
