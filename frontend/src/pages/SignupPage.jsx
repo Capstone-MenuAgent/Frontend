@@ -65,7 +65,7 @@ function SignupPage() {
         alert(res.data.message)
       }
     }).catch((error)=>{      
-      {error.response.status == 400
+      {error.response.status == 200
         ? alert(error.response.data.message)
         : alert('문제가 발생하였습니다. 다시 시도해주세요.')
       }
