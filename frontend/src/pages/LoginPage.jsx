@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/LoginPage.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import Header1 from '../layout/Header1';
+import Header1 from '../layout/Header/Header';
 import axios from 'axios';
 
 function LoginPage() {
@@ -38,7 +38,12 @@ function LoginPage() {
           // axios.defaults.headers.common[
           //   'Authorization'
           // ] = `Bearer ${res.headers['authorization']}`
-        }})      
+        }}).catch (error => {
+          alert('로그인에 실패했습니다. 아이디나 비밀번호를 확인해주세요');
+          setFormData({
+            password: ''
+          });
+        })      
       
       // navigation('/MainPage');  
   };

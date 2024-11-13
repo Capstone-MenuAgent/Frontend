@@ -1,6 +1,6 @@
 // src/Header.js
 import React from 'react';
-import styles from '../styles/Header2.module.css';
+import styles from '../../styles/Header2.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
@@ -33,7 +33,7 @@ const Header2 = () => {
   return (
     <header className={styles.header}>
       <Link to='/'>
-      <Button variant="secondary">로고위치</Button>     
+      <Button variant="secondary" style={{width:'5vw'}}>먹 지</Button>{' '}   
       </Link>
       <div>
         <Link to='/MainPage'>

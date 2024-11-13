@@ -1,16 +1,21 @@
 .divStyle{
   overflow: hidden;
   font-family: 'laundry';
+  background-color: #f5f5f5;
 }
 
 .formContainer {
     width: 30vw;
+    max-width: 400px;
     margin: 10vh auto;
-    margin-bottom: 2vh;
-    padding: 25px;
+    margin-top: 20vh;
+    margin-bottom: 25vh;
+    padding: 50px;
     border: 1px solid #ccc;
+    border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    height: 88vh;
+    height: 55vh;
+    background-color: #f5f5f5;
   }
   
   .label {
@@ -28,11 +33,11 @@
   
   .button {
     padding: 5px 5px;
-    margin-top: 1vh;
-    margin-left: 10%;
+    margin-top: 2vh;
+    margin-left: 35%;
     cursor: pointer;
     background-color: white;
     border: 1px solid black;
     border-radius: 10px;
-    width: 80%;
+    width: 30%;
   }

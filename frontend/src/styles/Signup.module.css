@@ -1,14 +1,22 @@
 .divStyle{
   overflow: hidden;
+  height: 100vh;
+  font-size: 1.8vh;
+  background-color: #f5f5f5;
 }
 .formContainer {
-    width: 30vw;
-    margin: 10vh auto;
+    width: 35vw;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 10vh;
+    margin-bottom: 25vh;
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     font-family: 'laundry';
     border-radius: 10px;
+    height: 65vh;
+    background-color: #f5f5f5;
   }
   
   .label {
@@ -26,8 +34,53 @@
   .button {
     width: 100%;
     padding: 10px;
-    background-color: #f0f0f0;
+    background-color: #cecece;
     border: none;
     cursor: pointer;
     border-radius: 10px;
   }
+
+  .radioDiv{
+    padding: 0 10vh 1.5vh 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .radioInput{
+    margin-right: 0.5vh;
+  }
+
+  input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 9px;
+    width: 2vh;
+    height: 2vh;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+  }
+  /* 선택된 라디오 버튼의 스타일 */
+input[type="radio"]:checked {
+  border-color: #404040; /* 선택되었을 때의 테두리 색상 */
+}
+
+input[type="radio"]:checked::before {
+  content: '';
+  width: 1.5vh;
+  height: 1.5vh;
+  background-color: #404040; /* 선택되었을 때 내부 원 색상 */
+  border-radius: 3px;
+  position: absolute;
+  top: 50%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+}
+
+.radioLabel{
+  display: flex;
+  align-items: center;
+}

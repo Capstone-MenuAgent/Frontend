@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from '../styles/Signup.module.css'; // Import the CSS module
-import Header1 from '../layout/Header1';
+import Header1 from '../layout/Header/Header';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -9,11 +9,13 @@ function SignupPage() {
     email: '',
     mainPassword: '',
     confirmPassword: '',
+    name: '',
     age: '',
-    gender : '',
+    gender: '', // 성별 추가
     addr: ''
   });
-  const navigation = useNavigate();
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,57 +27,88 @@ function SignupPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("/user/signup",
+    
+    // 비밀번호 확인 로직 추가 (선택 사항)
+    if (formData.mainPassword !== formData.confirmPassword) {
+      alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+
+    axios.post("/api/v1/member/signup",
       {
-        email : formData.email,
-        password : formData.mainPassword,
-        name : formData.name,
-        addr : formData.addr,
-        age : formData.age,
-        gender : formData.gender
+        email: formData.email,
+        password: formData.mainPassword,
+        name: formData.name,
+        addr: formData.addr,
+        age: formData.age,
+        gender: formData.gender
       }
     ).then((res) => {
-        alert(res.data);
-        navigation('/LoginPage');
-    })
+        alert('회원 가입 성공. 다시 로그인해주세요');
+        navigate('/LoginPage');
+    }).catch((error) => {
+        console.error("Signup error:", error);
+        alert("회원가입 중 오류가 발생했습니다.");
+    });
   };
 
   return (
     <div className={styles.divStyle}>
-        <Header1/>
-        <form onSubmit={handleSubmit} className={styles.formContainer}>
+      <Header1 />
+      <form onSubmit={handleSubmit} className={styles.formContainer}>
         <label className={styles.label}>
-            이메일
-            <input type="email" name="email" value={formData.email} onChange={handleChange} className={styles.input} />
+          이메일
+          <input type="email" name="email" value={formData.email} onChange={handleChange} className={styles.input} />
         </label>
         <label className={styles.label}>
-            비밀번호
-            <input type="password" name="mainPassword" value={formData.mainPassword} onChange={handleChange} className={styles.input} />
+          비밀번호
+          <input type="password" name="mainPassword" value={formData.mainPassword} onChange={handleChange} className={styles.input} />
         </label>
         <label className={styles.label}>
-            비밀번호 확인
-            <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} className={styles.input} />
+          비밀번호 확인
+          <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} className={styles.input} />
         </label>
         <label className={styles.label}>
-            이름
-            <input type="text" name="name" value={formData.name} onChange={handleChange} className={styles.input} />
+          이름
+          <input type="text" name="name" value={formData.name} onChange={handleChange} className={styles.input} />
         </label>
         <label className={styles.label}>
-            주소
-            <input type="text" name="addr" value={formData.addr} onChange={handleChange} className={styles.input} />
+          주소
+          <input type="text" name="addr" value={formData.addr} onChange={handleChange} className={styles.input} />
         </label>
         <label className={styles.label}>
-            나이
-            <input type="text" name="age" value={formData.age} onChange={handleChange} className={styles.input} />
+          나이
+          <input type="text" name="age" value={formData.age} onChange={handleChange} className={styles.input} />
         </label>
-        <label className={styles.label}>
-            성별
-            <input type="text" name="gender" value={formData.gender} onChange={handleChange} className={styles.input} />
-        </label>
-        <Link to='/LoginPage'>
+
+        {/* 성별 라디오 버튼 */}
+        <div className={styles.radioDiv}>
+          성별
+          <label className={styles.radioLabel}>
+            <input className={styles.radioInput}
+              type="radio"
+              name="gender"
+              value="MAN"
+              checked={formData.gender === 'MAN'}
+              onChange={handleChange}
+            />
+            남성
+          </label>
+          <label className={styles.radioLabel}>
+            <input className={styles.radioInput}
+              type="radio"
+              name="gender"
+              value="WOMEN"
+              checked={formData.gender === 'WOMEN'}
+              onChange={handleChange}
+            />
+            여성
+          </label>
+        </div>
+
+        {/* 회원가입 버튼 */}
         <button type="submit" className={styles.button}>회원가입</button>
-        </Link>
-        </form>
+      </form>
     </div>
   );
 }

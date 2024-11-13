@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/Header1.module.css';
+import styles from '../../styles/Header1.module.css';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
@@ -7,7 +7,7 @@ const Header1 = () => {
   return (
     <header className={styles.header}>
       <Link to='/'>
-      <Button variant="secondary">로고위치</Button>{' '}  
+      <Button variant="secondary" style={{width:'5vw'}}>먹 지</Button>{' '}  
       </Link>
       <div className={styles.headerButtons}>
       <Link to='/LoginPage'>  

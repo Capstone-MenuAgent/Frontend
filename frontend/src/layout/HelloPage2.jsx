@@ -1,5 +1,5 @@
 import React from 'react';
-import Header1 from './Header1';
+import Header1 from './Header/Header';
 import styles from '../styles/HelloPage2.module.css';
 import { Link } from 'react-router-dom';
 
