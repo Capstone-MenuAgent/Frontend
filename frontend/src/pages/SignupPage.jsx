@@ -14,6 +14,7 @@ function SignupPage() {
     gender: '', // 성별 추가
     addr: ''
   });
+  const [emailChecked, setEmailChecked] = useState(false)
 
   const navigate = useNavigate();
 
@@ -52,14 +53,29 @@ function SignupPage() {
     });
   };
 
+  const emailCheck = (data) => {    
+    data.preventDefault();
+    axios.post("/api/v1/member/", null, {
+      params:  formData.email 
+    }).then((res) => {
+      if(res.status == 200){
+        setEmailChecked(true)
+        alert(res.data.message)
+      }else{
+        alert(res.data.message)
+      }
+    })
+  }
+
   return (
     <div className={styles.divStyle}>
       <Header1 />
       <form onSubmit={handleSubmit} className={styles.formContainer}>
-        <label className={styles.label}>
+        <label className={styles.emailLabel}>
           이메일
-          <input type="email" name="email" value={formData.email} onChange={handleChange} className={styles.input} />
+          <input disabled={emailChecked} type="email" name="email" value={formData.email} onChange={handleChange} className={styles.input} />
         </label>
+        <button className={!emailChecked ? styles.checkButton : styles.checkedButton} onClick={emailCheck} disabled={emailChecked}>중복 확인</button>
         <label className={styles.label}>
           비밀번호
           <input type="password" name="mainPassword" value={formData.mainPassword} onChange={handleChange} className={styles.input} />

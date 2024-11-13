@@ -7,7 +7,7 @@ const Header1 = () => {
   return (
     <header className={styles.header}>
       <Link to='/'>
-      <Button variant="secondary" style={{width:'5vw'}}>먹 지</Button>{' '}  
+      <Button variant="secondary" className={styles.logo}>먹 지</Button>{' '}  
       </Link>
       <div className={styles.headerButtons}>
       <Link to='/LoginPage'>  
