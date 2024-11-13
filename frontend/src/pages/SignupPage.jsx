@@ -60,12 +60,16 @@ function SignupPage() {
         email: formData.email
       }
     }).then((res) => {
-      if(res.status == 200){
+      if(res.status == 400){
         setEmailChecked(true)
         alert(res.data.message)
-      }else{
-        alert(res.data.message)
       }
+    }).catch((error)=>{      
+      {error.response.status == 400
+        ? alert(error.response.data.message)
+        : alert('문제가 발생하였습니다. 다시 시도해주세요.')
+      }
+
     })
   }
 
